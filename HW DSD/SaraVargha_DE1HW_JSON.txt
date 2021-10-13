@@ -1,0 +1,124 @@
+Exercise 1:
+{
+"bookstore":
+[
+{
+	"@category":"COOKING",
+	"titles":
+		{
+		"title":
+			{
+			"@lang":"en","#text":"Everyday Italian"
+			}
+		},
+	"authors":
+		{
+		"author":"Giada De Laurentiis"
+		},
+	"year":"2005",
+	"price": "30.00",
+	"available":"TRUE"
+},
+{
+	"@category": "CHILDREN",
+	"titles":
+		{
+		"title":
+			{
+			"@lang":"en","#text":"Harry Potter"
+			}
+		},
+	"authors":
+		{
+		"author":"J.K. Rowling"
+		},
+	"price": "29.99",
+	"available": "FALSE"
+},
+{
+	"@category":"DATA",
+	"titles":
+		[
+			{
+			"@lang":"en","#text":"The Data Warehouse Toolkit"
+			}, 
+			{
+			"@lang":"hun", "#text":"Adattárház eszközök"
+			}
+		],
+	"authors":
+		[
+		"Ralph Kimball","Margy Ross"
+		],
+	"year":"2002",
+	"price": "87",
+	"available":"TRUE"
+}
+]
+}
+
+Exercise 2:
+
+{
+"University":
+	[
+	{"Students":
+		[
+		{
+		"StudentID":"1",
+		"FirstName":"Jean",
+		"LastName":"Doe",
+		"Program":"Finance"
+		},
+		{
+		"StudentID":"2",
+		"FirstName":"John",
+		"LastName":"Doe",
+		"Program":"Economics"
+		}
+		]
+	},
+	{"Programs":
+		[
+		{
+		"ProgramID":"1",
+		"Program":"Finance",
+		"ProgramLevel":"MS",
+		"Department":"Department of Business and Economics",
+		"Coordinator":"Judit Kiss",
+		"Location":"Budapest"
+		},
+		{
+		"ProgramID":"2",
+		"Program":"Economics",
+		"ProgramLevel":"MS",
+		"Department":"Department of Business and Economics",
+		"Coordinator":"Anna Schultz",
+		"Location":"Vienna"
+		}
+		]
+	},
+	{"Courses":
+		[
+		{
+		"CourseID":"1",
+		"CourseName": "Data Engineering 1",
+		"Instructor":"László Salló",
+		"MainProgram":"Business Analytics"
+		},
+		{
+		"CourseID":"2",
+		"CourseName":"Corporate Finance",
+		"Instructor":"Alex Schröder",
+		"MainProgram":"Finance"
+		},
+		{
+		"CourseID":"3",
+		"CourseName":"Game Theory",
+		"Instructor":"Julia Schmidt",
+		"MainProgram":"Economics"
+		}
+		]
+	}
+	]
+}
