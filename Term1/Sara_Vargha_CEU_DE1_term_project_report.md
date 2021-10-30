@@ -32,7 +32,8 @@ My operational layer consists of 8 tables stored in .csv files, covering informa
 
 The following EER diagram represents the star schema created from the above tables with the **“orders”** table as my main table:
 
-![image-20211030221814211](C:\Users\vargh\AppData\Roaming\Typora\typora-user-images\image-20211030221814211.png)
+![image](https://user-images.githubusercontent.com/90265177/139558095-ef84fab7-f07b-4c77-a249-7b82f325f761.png)
+
 
 ## Analytics plan & analytical layer
 
@@ -54,7 +55,7 @@ To answer the two analytical questions about top performing product categories a
 
 The analytical layer was built on the following star schema:
 
-![image-20211030221932243](C:\Users\vargh\AppData\Roaming\Typora\typora-user-images\image-20211030221932243.png)
+![image](https://user-images.githubusercontent.com/90265177/139558059-a03b5665-b3d6-4187-8a57-cada355fee56.png)
 
 ## Data marts
 
