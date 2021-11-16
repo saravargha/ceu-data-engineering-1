@@ -1,0 +1,599 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>Data Engineering 1 - Term project 2 report - Bogota</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h2 id='data-engineering-1---term-project-2-report-bogota'><span>Data Engineering 1 - Term project 2 report (Bogota)</span></h2><p><span>Team members:</span></p><ul><li><span>Péter Kaiser</span></li><li><span>Rauhan Nazir</span></li><li><span>Sára Vargha</span></li><li><span>Xibei Chen</span></li></ul><h3 id='introduction'><span>Introduction</span></h3><hr /><p><span>The aim of the term project was to collect data on a selected topic, formulate a couple of analytics questions and build a Knime workflow to answer those questions (including analytical methods and visualization). As all team members shared interest in movies, we decided to look for a suitable dataset on films and conduct an analysis on the relationship between the success of different movies - measured by the number of awards won and the box office revenue - and various economic factors, such as the government expenditure on education or the population of cultural employment. </span></p><p><span>Although we have discussed several analytical questions, in the end we narrowed down our analysis to the following four questions:</span></p><ol start='' ><li><span>Which genres are the top 5 in terms of average number of awards won and IMDb ratings?</span></li><li><span>What is the relationship between number of awards won and IMDb ratings?</span></li><li><span>What is the relationship between the box office revenue of a movie and the GDP per capita, expenditure on education and population of cultural employment of its country of origin?</span></li><li><span>What is the relationship between the number of awards won by a movie and the GDP per capita, expenditure on education and population of cultural employment of its country of origin?</span></li></ol><h3 id='data-sources'><span>Data sources</span></h3><hr /><p><span>For the sake of the term project, data have been collected from the following sources:</span></p><ol start='' ><li><p><a href='https://www.kaggle.com/ruchi798/movies-on-netflix-prime-video-hulu-and-disney'><strong><span>Movies on Netflix, Prime Videos, Hulu and Disney+ dataset from Kaggle</span></strong></a></p><p><span>To get comprehensive information on movies, we downloaded a dataset from Kaggle including scraped data on movies available on the major streaming platforms (Netflix, Prime Videos, Hulu, Disney+).  The dataset provides information on title, genre, year of production, origin, language, runtime, ratings and availability on streaming platforms of 9,515 films and was last updated in August 2021.</span></p><p><span>The four tables involved (rating, movie, platforms and country) have been loaded and joined in MySQL using dampling for better reproducibility. </span></p><p><img src="https://lh6.googleusercontent.com/H6O6ys2K5MJPVjwLPtGpKCnkicxmGfpDcPDyYUWT2aWEzWUFXbfxmETtuS6_TkkqrRi4X6HYjwbAnc59z8IZEhp77QxAT0ElLAsM8157COUtCgCmzSY91Yv5gQX38WHwfih48OwU" alt="img" style="zoom:33%;" /></p></li><li><p><strong><span>Country codes and coordinates data table from GitHub</span></strong>
+<span>Since countries are identified by country codes in some of the following APIs and our existing data sources included only country names, we needed an intermediary to match country names in the country table of our Kaggle dataset to the country codes in the World Bank API. For this reason, we used the</span><a href='https://gist.github.com/tadast/8827699#file-countries_codes_and_coordinates-csv'><span> countries_codes_and_coordinates.csv</span></a><span> from GitHub to get the Alpha-2 country codes.</span></p></li><li><p><strong><span>OMDb API</span></strong></p><p><span>To get information about (1) box office statistics and (2) the awards won by the films in our Kaggle dataset, we used the Open Movie Database (OMDb API), which is a crowdsourced RESTful web service obtaining detailed information on movies.</span></p><p><img src="https://lh5.googleusercontent.com/eUqkXEApNA3M5ogwNpcCzyBgXDy4CQBczM3nQgF610oqGChzQEovQ29T17DXmlF7DLHZ8BxF6vSbxzF4PKVSx4CcUGH9TsyyrcxcN86Ub-M7mzm7Wj0QdfvhmaHwlnlWRquYdDvS" alt="img" style="zoom:25%;" /></p></li><li><p><strong><span>World Bank API</span></strong></p><p><span>As we also needed data on GDP per capita and government spending on education to answer our analytical questions, we included two relevant indicators from the World Bank API in our project:</span></p><ul><li><p><span>GDP per capita (current USD): NY.GDP.PCAP.CD</span></p></li><li><p><span>Government expenditure on education, total (% of GDP): SE.XPD.TOTL.GD.ZS</span></p><p><img src="https://lh4.googleusercontent.com/DoZu4Fv_seSY4iDFgch9UL5xqvlHN1DaPMgldAZeFy-n-x-dDgRtgHUqIxuj1wIMSufQc7EUwNDkZ-0bkODABsmzoU0vYnvTEasY37_zu6aBKdo5yywdpA5C0Xndjl1okOYsJXmF" alt="img" style="zoom:33%;" /></p></li></ul></li><li><p><strong><span>Eurostat API</span></strong></p><p><span>To get information about the employment statistics of the cultural/creative industry of the countries, we connected to Eurostat&#39;s API and used the &quot;Persons working as creative and performing artists, authors, journalists and linguists&quot; data table.</span></p><p><img src="https://lh4.googleusercontent.com/BburyjU_wRquKnuDbx0gBbcv1QKs_1pvja-xqct6M6O_AynGJIXTIxhmd5dktQ2iWAi7eg63x1egR_-cF_R_lqMjQIshEZ9Chrbo66EVmQlnRlci0VJ1cVEk1sOwJjmJZGWP5LaH" alt="img" style="zoom:33%;" /></p></li></ol><h3 id='workflow-in-knime'><span>Workflow in Knime</span></h3><hr /><ol start='' ><li><h5 id='preparation'><span>Preparation</span></h5><p><strong><span>MySQL connector and DB Query Reader:</span></strong><span> to make the connection with the &#39;movies_on_streaming_platforms&#39; database created in mySQL, the first step to be executed is setting up the MySQL connector to establish the connection between MySQL and Knime. To do so, users must input their credentials into this node to access their MySQL user interface, as well as select the &#39;movies on streaming_platforms&#39; database.  To create the analytical layer, we joined the tables from the &#39;movies_on_streaming platforms&#39; dataset with DB Query Reader.</span></p><p><img src="https://lh4.googleusercontent.com/Mfo_lBRVzNtiWhjgeZIYsLlI8lt_LZ-7junm66q8M8kXFo1ZmohHS-6K4iFk-dD6_1-arU2j1xLIzVZu4yo1XdS-RuaEbBY7O_AKAStgojtvEDQ9gnbh20fg123Ur8aRM1PvNtHq" alt="img" style="zoom:33%;" /></p><p><strong><span>File reader to read &#39;country_codes_and_coordinates.csv&#39; from GitHub and filter selected columns:</span></strong><span> we used a file reader to read &#39;country_codes_and_coordinates.csv&#39; downloaded from GitHub to our local computers and applied a column filter to get the two relevant columns for our project: &quot;Country&quot; and &quot;Alpha-2 code&quot;. (Please note that in order to run the Knime script properly, the above mentioned csv file needs to be downloaded from GitHub and loaded using the file reader.)</span></p><p><strong><span>Joining movies and country codes:</span></strong><span> as the next step, we merged the two data tables with a Joiner node. As a result, the &#39;movies_on_streaming_platforms&#39; data table has been complemented with country codes and become ready for loading and joining our API sources.</span></p></li><li><h5 id='load-apis-and-clean-data-sources'><span>Load APIs and clean data sources</span></h5><p><strong><span>OMDb API:</span></strong><span> First we added the OMDb API and after some basic cleaning steps (removing one unfound movie and creating a new column &quot;new&quot; with the titles extracted from the API url) extracted the &quot;Awards&quot; and &quot;BoxOffice&quot; data into separate columns. </span></p><p><span>As the &quot;Awards&quot; column was originally a string including both the number of wins and the number of nominations,the following data cleaning steps were taken to get the number of wins as a separate numeric variable:</span></p><ul><li><span>Created a new column for the number of wins and extracted the number using Sting Manipulation nodes. As the first step, we created the &quot;indexofwin&quot; variable where we extracted the number of digits before the phrase &quot; win&quot;.  This variable had three values: -1 for zero wins, 1 for one digit number of wins and 2 for two-digit number of wins. </span></li><li><span>Next, we created the actual &quot;num_of_wins&quot; variable where we displayed the two characters before the phrase &quot; win&quot;, which equals to the number of wins.  Where the index was -1 (movies with zero wins), we dropped both the &quot;indexofwin&quot; and &quot;num_of_wins&quot; columns and concatenated the resulting table with a table where we kept the &quot;num_of_wins&quot; column for the movies which won at least one award. </span></li><li><span>As the last step, we converted the &quot;num_of_wins&quot; to numeric variable.</span></li></ul><p><span>In case of &quot;BoxOffice&quot;, first we removed the dollar signs and commas from the string and replaced &quot;N/A&quot;s with &quot; &quot;.  Second, we converted the variable from string to numeric and then changed the unit to million USD and set the variable as integer.</span></p><p><strong><span>World Bank API</span></strong></p><p><span>After connecting to the selected indicators of the World Bank API, we noticed that the &quot;exp_on_edu&quot; variable was a string and changed it a numeric rounded to two decimals.</span></p><p><img src="https://lh3.googleusercontent.com/K9auUdv-Yxdem6SsFrvzWzSnNO31PqcsbyP1Yss1LIaqg4MFUmjEKkOwbucuFCESRboBGZdgINtZANoi_syIngfkzHdPXoPwhKfg2elaVTWY3wFYzyp9rn5c4bmKHnQsZWouG-v8" alt="img" style="zoom: 33%;" /></p><p><strong><span>Eurostat API</span></strong></p><p><span>As Eurostat API contains data only for European countries, movies from non-European countries did not have matching data in the API. To exclude the resulting errors, we added a rule-based row filter to keep employment statistics of the cultural/creative industry for movies originated from European countries.</span></p></li><li><h5 id='joining-data-sources'><span>Joining data sources</span></h5><p><span>As the first step, we joined World Bank API and Eurostat API with a full outer join based on the titles of the movies, keeping all data from both data sources. To create our denormalized analytical layer, we took the movies data table expanded with the cleaned OMDb APIs inputs as the left table and joined it to the result of our World Bank &amp; Eurostat join as our right table using left join based on the title of movies.</span></p><p><img src="https://lh6.googleusercontent.com/sdhDHdN3McnV_KZztbDb_SwGuBa1cHJTLVBbKLbaYO8m3IfWkXoCTZkwWReoM5oFbN7hV2TygOqBJovp0ygwH1yEM1mtCPIn5qgTUdR_LDXT9pOfmcTqVn4Dl7V-JWwsPEllbBnU" alt="img" style="zoom:50%;" /></p></li></ol><h3 id='data-analytics-and-visualization'><span>Data analytics and visualization</span></h3><hr /><p><strong><span>Which genres are the top 5 in terms of average number of awards won and IMDb ratings?</span></strong></p><p><span>Based on our data, we can tell that there are differences in terms of what kinds of movies that win more awards compared to those that receive higher IMDb ratings. Animation wins significantly more awards on average than the 4 other genres, whereas Documentary is the top1 in terms of average IMDb ratings, but the difference between the top 5 genres are only slight.</span></p><p><img src="https://lh6.googleusercontent.com/0RPsCHMRAPPbEJKad8SwKnA8F9jlVYWFYByDoiQco7kMXIyvjB7GsppkKT4gfA97XBREtGF2R-wykvJ0Qc3oi0rU3LAXkIOzmvz5gfHAUebFIRVHqAenx8znf9XLTeTFMudfIKgb" alt="img" style="zoom: 25%;" /><img src="https://lh3.googleusercontent.com/riOYDwc4eTLkm2TbqCghCoOx6fdslIR7S5katAp4lj_zYsc9dwe1Tross1Y-GaaYqmzCU0hWIvbtovwszzuT6vzH3_RW64DxEsnjL5XSVlmdTfqFRm_TE1hjrY3VcQ8-z-UNDSRY" alt="img" style="zoom: 25%;" /></p><p>&nbsp;</p><p><strong><span>What is the relationship between number of awards won and IMDb ratings?</span></strong></p><p><span>The histogram shows an increase in the number of awards won for the movies that are rated higher on IMDB. For movies rated between 3 and 6 there is not much variance in the number of awards won, however beyond 6.2 we witness a significant improvement, most notably, the difference between the movies that lie in the 7 and 8 rated category (the increase is over 90%). So we can say on average, as the rating of the movie increases so does the performance of the movie in terms of awards won.</span><img src="https://lh4.googleusercontent.com/t_mr8t0m0V3NKqXbWfoZ0omc7lFxs1PHa2b5RjnE47z82yC9MCn4soGSaa2N5M-glPKOsFWRKmCUcrOusrDEu4amgVfdwbMSAPsLvwfnViQrbd-mhVoyqqP4yv25sIO3jNUN2WSZ" alt="img" style="zoom:33%;" /><img src="https://lh6.googleusercontent.com/pU2CzA2YMdyQTG-MrhzdmI1F2OHinSI1zk8mN6VvU1sFHatfyvUXFU1aZFnJx1X2LzSW-K4yAiNZSslOtPHnKRW8lGQsXMihdoMKgalPo55RIWY6csmn0ej8Eh5q-lTyTLOWmfXz" alt="img" style="zoom:33%;" /></p><p><span>This scatter plot further emphasizes the same point, as we can see that a positive slope trend line can be fitted between the two variables. Low rated movies are only able to win a fraction of the number of awards compared to the high rated movies.</span></p><p><strong><span>What is the relationship between the box office revenue of a movie and the GDP per capita, expenditure on education and population of cultural employment of its country of origin?</span></strong></p><p><span>From the below statistics on linear regression, we can see that a country’s government expenditure on education (% of total GDP) is positively related to the average box office revenue of movies produced by this country. However, the p-value is too high, so we cannot reject that there is no correlation between the two. Therefore, from our dataset, we can conclude there is no statistically significant correlation between average box office revenue of movies and the country’s GDP per capita, expenditure on education and cultural employment population.</span></p><p><img src="https://lh3.googleusercontent.com/40kuzsTNWIZ2I0L09ic0INL1h8AK24yHs-dAEE3BPIoTbVaXOdZ8-VNsub6nbVPg11ScTc9ISxmxoqhLZd1ZIo_8uIKmGjdxRKDGAehkPbT9RMExtFEyL2WrhtRlCdOf1YDDp8ps" alt="img" style="zoom: 50%;" /></p><p><strong><span>What is the relationship between the number of awards won by a movie and the GDP per capita, expenditure on education and population of cultural employment of its country of origin?</span></strong></p><p><span>We run a multiple regression and from the statistics we can be 95% confident that a country’s government expenditure on education (% of total GDP) is positively related to the average number of awards won by movies originating from that particular country. However, based on our data, there is no statistically significant correlation either (1) between the number of movies’ awards won, and (2) the country’s GDP per capita and cultural employment population.</span></p><p><img src="https://lh6.googleusercontent.com/hM5jSQO18wb3itNzJRHwcTDAwYn4ayzfJR4OgZMMbEt-_Is-aLTO_FDtQoJ7aUNtnXAuCctrNvT7-FYHwP0cuph8dcS7Rdy1se6r8NiADVC2c7DGe7ZP0goGbdwCRe5hFsSUB9yQ" alt="img" style="zoom: 50%;" /></p><h3 id='who-did-what'><span>Who did what?</span></h3><hr /><p><span>Péter Kaiser: Data Cleaning, Reproducibility, Knime Workflow</span></p><p><span>Rauhan Nazir: Data Cleaning, Part of Data Analysis and Visualization, Part of Extracting Values through APIs</span></p><p><span>Sára Vargha: Markdown report and project documentation, PPT</span></p><p><span>Xibei Chen: Create DB on MySQL, Extract Values from JSON by Calling APIs, part of Data Analysis and Visualization, Knime Workflow Annotation</span></p><p>&nbsp;</p></div></div>
+</body>
+</html>
